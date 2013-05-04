@@ -20,6 +20,32 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+  /**
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *user = [NSEntityDescription
+                                       insertNewObjectForEntityForName:@"User"
+                                       inManagedObjectContext:context];
+    [user setValue:@1 forKey:@"userID"];
+    [user setValue:@"m4nn3qu1n" forKey:@"userName"];
+    [user setValue:@"password" forKey:@"password"];
+    
+    NSError *error;
+    if (![context save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription
+                                   entityForName:@"User" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *info in fetchedObjects) {
+        NSLog(@"ID: %@", [info valueForKey:@"userID"]);
+        NSLog(@"User Name: %@", [info valueForKey:@"userName"]);
+        NSLog(@"Password: %@", [info valueForKey:@"password"]);
+       
+    }**/
     return YES;
 }
 
